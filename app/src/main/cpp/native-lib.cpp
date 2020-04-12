@@ -1,6 +1,7 @@
 #include <jni.h>
 #include <string>
 #include <android/log.h>
+#include "hello.h"
 
 #define LOG_TAG "System.out"
 #define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)
@@ -10,7 +11,9 @@ Java_com_learn_jni_DataProvider_stringFromJNI(
         JNIEnv* env,
         jobject /* this */) {
     std::string hello = "Hello from C++";
-    return env->NewStringUTF(hello.c_str());
+    Process * ptr = new Process();
+    std:string h =  ptr->process(128);
+    return env->NewStringUTF(h.c_str());
 }
 
 
