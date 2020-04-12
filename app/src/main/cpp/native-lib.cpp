@@ -89,6 +89,30 @@ JNIEXPORT jint JNICALL Java_com_learn_jni_DataProvider_callInt
     return result;
 }
 
+extern "C"
+/*
+ * Class:     com_learn_jni_DataProvider
+ * Method:    getLameVersion
+ * Signature: ()Ljava/lang/String;
+ */
+JNIEXPORT jstring JNICALL Java_com_learn_jni_DataProvider_getLameVersion
+        (JNIEnv * env, jobject obj){
+
+}
+
+extern "C"
+/*
+ * Class:     com_learn_jni_DataProvider
+ * Method:    convertAudio
+ * Signature: (Ljava/lang/String;Ljava/lang/String;)V
+ */
+JNIEXPORT void JNICALL Java_com_learn_jni_DataProvider_convertAudio
+        (JNIEnv * env, jobject obj, jstring input, jstring output){
+
+}
+
+
+
 int getPressure() {
     return rand();
 }

@@ -23,6 +23,10 @@ class DataProvider {
 
     external fun getPressure():String
 
+    external fun getLameVersion():String
+    external fun convertAudio(inputName:String,outputName:String)
+
+
     companion object {
 
         // Used to load the 'native-lib' library on application startup.
