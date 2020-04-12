@@ -18,6 +18,11 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(baseContext,"call",Toast.LENGTH_SHORT).show()
             provider.callFromJava()
         }
+        sample_text.setOnLongClickListener {
+
+            provider.addInt(10,30);
+            true
+        }
 //        sample_text.text = "${add(10,20) }"
     }
 

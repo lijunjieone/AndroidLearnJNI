@@ -81,8 +81,9 @@ JNIEXPORT jint JNICALL Java_com_learn_jni_DataProvider_callInt
         LOGD("Find method");
     }
 
-    jint result = env->CallIntMethod(obj,java_method,5,8);
+    jint result = env->CallIntMethod(obj,java_method,a,b);
     LOGD("c result %d",result);
+    return result;
 }
 
 /*
