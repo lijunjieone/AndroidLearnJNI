@@ -4,6 +4,9 @@
 #include "hello.h"
 #include "utils.h"
 
+#include "libmp3lame/lame.h"
+
+
 #define LOG_TAG "System.out"
 #define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)
 
@@ -98,7 +101,7 @@ extern "C"
  */
 JNIEXPORT jstring JNICALL Java_com_learn_jni_DataProvider_getLameVersion
         (JNIEnv * env, jobject obj){
-
+    return env->NewStringUTF(get_lame_version());
 }
 
 extern "C"
