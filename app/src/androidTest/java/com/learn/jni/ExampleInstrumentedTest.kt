@@ -1,4 +1,4 @@
-package com.example.jni
+package com.learn.jni
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

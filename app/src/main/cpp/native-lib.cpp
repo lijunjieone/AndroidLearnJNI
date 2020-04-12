@@ -6,7 +6,7 @@
 #define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)
 
 extern "C" JNIEXPORT jstring JNICALL
-Java_com_example_jni_MainActivity_stringFromJNI(
+Java_com_learn_jni_MainActivity_stringFromJNI(
         JNIEnv* env,
         jobject /* this */) {
     std::string hello = "Hello from C++";
@@ -15,7 +15,7 @@ Java_com_example_jni_MainActivity_stringFromJNI(
 
 
 extern "C" JNIEXPORT jstring JNICALL
-Java_com_example_jni_MainActivity_stringFromJNI2(
+Java_com_learn_jni_MainActivity_stringFromJNI2(
         JNIEnv* env,
         jobject /* this */) {
     std::string hello = "Hello from3 C++";
@@ -25,7 +25,7 @@ Java_com_example_jni_MainActivity_stringFromJNI2(
 
 extern "C"
 
-JNIEXPORT jint JNICALL Java_com_example_jni_MainActivity_add
+JNIEXPORT jint JNICALL Java_com_learn_jni_MainActivity_add
         (JNIEnv * env, jobject, jint a, jint b) {
     LOGD("%s","add commond");
     return a+b;

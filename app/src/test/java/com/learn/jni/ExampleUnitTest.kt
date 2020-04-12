@@ -1,4 +1,4 @@
-package com.example.jni
+package com.learn.jni
 
 import org.junit.Test
 

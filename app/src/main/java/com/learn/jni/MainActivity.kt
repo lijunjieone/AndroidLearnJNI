@@ -1,4 +1,4 @@
-package com.example.jni
+package com.learn.jni
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
