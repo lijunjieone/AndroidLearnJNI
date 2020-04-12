@@ -20,6 +20,9 @@ class DataProvider {
 
     external fun callInt(a:Int,b:Int):Int
     external fun callFromJava()
+
+    external fun getPressure():String
+
     companion object {
 
         // Used to load the 'native-lib' library on application startup.
