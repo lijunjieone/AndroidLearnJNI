@@ -87,6 +87,14 @@ JNIEXPORT jstring JNICALL Java_com_example_myapplication_MainActivity_stringFrom
 JNIEXPORT jstring JNICALL Java_com_example_myapplication_MainActivity_stringFromJNI2
   (JNIEnv *, jobject);
 
+/*
+ * Class:     com_example_myapplication_MainActivity
+ * Method:    add
+ * Signature: (II)I
+ */
+JNIEXPORT jint JNICALL Java_com_example_myapplication_MainActivity_add
+  (JNIEnv *, jobject, jint, jint);
+
 #ifdef __cplusplus
 }
 #endif

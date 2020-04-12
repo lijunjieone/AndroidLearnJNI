@@ -22,3 +22,12 @@ Java_com_example_myapplication_MainActivity_stringFromJNI2(
     LOGD("%s","haha");
     return env->NewStringUTF(hello.c_str());
 }
+
+extern "C"
+
+JNIEXPORT jint JNICALL Java_com_example_myapplication_MainActivity_add
+        (JNIEnv * env, jobject, jint a, jint b) {
+    LOGD("%s","add commond");
+    return a+b;
+}
+
