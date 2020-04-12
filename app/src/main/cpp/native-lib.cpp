@@ -89,11 +89,18 @@ JNIEXPORT jint JNICALL Java_com_learn_jni_DataProvider_callInt
     return result;
 }
 
+int getPressure() {
+    return rand();
+}
 extern "C"
 JNIEXPORT jstring JNICALL Java_com_learn_jni_DataProvider_getPressure
         (JNIEnv * env, jobject obj){
-    std:string str="1000 pressure";
-    return env->NewStringUTF(str.c_str());
+    std:string str=" ";
+    std::stringstream ss;
+    ss << getPressure()%300;
+    ss >> str;
+    std::string result = "Pressure:"+ str;
+    return env->NewStringUTF(result.c_str());
 }
 /*
  * Class:     com_learn_jni_DataProvider
