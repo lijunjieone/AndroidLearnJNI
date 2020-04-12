@@ -104,6 +104,8 @@ JNIEXPORT jstring JNICALL Java_com_learn_jni_DataProvider_getLameVersion
     return env->NewStringUTF(get_lame_version());
 }
 
+char* jstringToChar(JNIEnv* env, jstring jstr) ;
+
 extern "C"
 /*
  * Class:     com_learn_jni_DataProvider
@@ -112,7 +114,44 @@ extern "C"
  */
 JNIEXPORT void JNICALL Java_com_learn_jni_DataProvider_convertAudio
         (JNIEnv * env, jobject obj, jstring input, jstring output){
+    char* inputname = jstringToChar(env,input);
+    char* outputname = jstringToChar(env,output);
+    LOGD("input:%s,output:%s",inputname,outputname);
 
+    FILE * wav = fopen(inputname,"rb");
+    FILE * mp3 = fopen(outputname,"wb");
+    int read;
+    int write;
+
+    short int wav_buffer[8192*2];
+    unsigned char mp3_buffer[8192];
+
+    lame_t lame = lame_init();
+    lame_set_in_samplerate(lame,44100);
+    lame_set_num_channels(lame,2);
+    lame_set_VBR(lame,vbr_default);
+    lame_init_params(lame);
+
+    LOGD("lame init finish");
+
+    do {
+        read = fread(wav_buffer,sizeof(short int)*2,8182,wav);
+        if(read == 0){
+            write = lame_encode_flush(lame,mp3_buffer,8192);
+            fwrite(mp3_buffer,sizeof(char),write,mp3);
+
+        }else {
+            write = lame_encode_buffer_interleaved(lame,wav_buffer,read,mp3_buffer,8192);
+            fwrite(mp3_buffer,sizeof(char),write,mp3);
+        }
+    }while(read!=0);
+
+    LOGD("encode finish");
+
+    lame_close(lame);
+    fclose(mp3);
+    fclose(wav);
+    LOGD("convert complete");
 }
 
 extern "C"

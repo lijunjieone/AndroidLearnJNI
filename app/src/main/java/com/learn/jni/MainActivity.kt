@@ -20,7 +20,8 @@ class MainActivity : AppCompatActivity() {
 //        sample_text.text = provider.sayHelloInC("lijunjie")
         sample_text.setOnClickListener {
             Toast.makeText(baseContext,"call",Toast.LENGTH_SHORT).show()
-            provider.callFromJava()
+//            provider.callFromJava()
+            provider.convertAudio("/sdcard/2.wav","/sdcard/b.mp3")
         }
         sample_text.setOnLongClickListener {
 
