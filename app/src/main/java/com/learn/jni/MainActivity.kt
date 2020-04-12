@@ -11,7 +11,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // Example of a call to a native method
-        sample_text.text = "${add(10,20) }"
+        sample_text.text = sayHelloInC("lijunjie")
+//        sample_text.text = "${add(10,20) }"
     }
 
     /**
@@ -21,6 +22,7 @@ class MainActivity : AppCompatActivity() {
     external fun stringFromJNI(): String
     external fun stringFromJNI2(): String
     external fun add(a:Int,b:Int):Int
+    external fun sayHelloInC(s:String):String
 
 
     companion object {
