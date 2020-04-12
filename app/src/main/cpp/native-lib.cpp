@@ -6,7 +6,7 @@
 #define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)
 
 extern "C" JNIEXPORT jstring JNICALL
-Java_com_learn_jni_MainActivity_stringFromJNI(
+Java_com_learn_jni_DataProvider_stringFromJNI(
         JNIEnv* env,
         jobject /* this */) {
     std::string hello = "Hello from C++";
@@ -15,7 +15,7 @@ Java_com_learn_jni_MainActivity_stringFromJNI(
 
 
 extern "C" JNIEXPORT jstring JNICALL
-Java_com_learn_jni_MainActivity_stringFromJNI2(
+Java_com_learn_jni_DataProvider_stringFromJNI2(
         JNIEnv* env,
         jobject /* this */) {
     std::string hello = "Hello from3 C++";
@@ -24,7 +24,7 @@ Java_com_learn_jni_MainActivity_stringFromJNI2(
 }
 
 extern "C"
-JNIEXPORT jstring JNICALL Java_com_learn_jni_MainActivity_sayHelloInC
+JNIEXPORT jstring JNICALL Java_com_learn_jni_DataProvider_sayHelloInC
         (JNIEnv * env, jobject, jstring jStr) {
     LOGD("%s",jStr);
     if (!jStr)
@@ -51,10 +51,66 @@ JNIEXPORT jstring JNICALL Java_com_learn_jni_MainActivity_sayHelloInC
 
 extern "C"
 
-JNIEXPORT jint JNICALL Java_com_learn_jni_MainActivity_add
+JNIEXPORT jint JNICALL Java_com_learn_jni_DataProvider_add
         (JNIEnv * env, jobject, jint a, jint b) {
     LOGD("%s","add commond");
     return a+b;
+}
+
+/*
+ * Class:     com_learn_jni_DataProvider
+ * Method:    callInt
+ * Signature: (II)I
+ */
+extern "C"
+JNIEXPORT jint JNICALL Java_com_learn_jni_DataProvider_callInt
+        (JNIEnv * env, jobject obj, jint a, jint b){
+    char* classname = "com/learn/jni/DataProvider";
+    jclass clazz;
+    clazz = env->FindClass(classname);
+    if(clazz == 0) {
+        LOGD("Can't find class");
+    }else {
+        LOGD("Find class");
+    }
+
+    jmethodID java_method = env->GetMethodID(clazz,"addInt","(II)I");
+    if(java_method == 0){
+        LOGD("Can't find java_method");
+    }else {
+        LOGD("Find method");
+    }
+
+    jint result = env->CallIntMethod(obj,java_method,5,8);
+    LOGD("c result %d",result);
+}
+
+/*
+ * Class:     com_learn_jni_DataProvider
+ * Method:    callFromJava
+ * Signature: ()V
+ */
+extern "C"
+JNIEXPORT void JNICALL Java_com_learn_jni_DataProvider_callFromJava
+        (JNIEnv * env, jobject obj){
+    char* classname = "com/learn/jni/DataProvider";
+    jclass clazz;
+    clazz = env->FindClass(classname);
+    if(clazz == 0) {
+        LOGD("Can't find class");
+    }else {
+        LOGD("Find class");
+    }
+
+    jmethodID java_method = env->GetMethodID(clazz,"helloFromJava","()V");
+    if(java_method == 0){
+        LOGD("Can't find java_method");
+    }else {
+        LOGD("Find java_method");
+    }
+
+    env->CallVoidMethod(obj,java_method);
+
 }
 
 jstring charTojstring(JNIEnv* env, const char* pat) {
