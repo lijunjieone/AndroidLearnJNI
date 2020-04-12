@@ -13,7 +13,8 @@ class MainActivity : AppCompatActivity() {
 
         val provider = DataProvider()
         // Example of a call to a native method
-        sample_text.text = provider.getPressure()
+        sample_text.text = "Float:"+provider.addFloat(1.0f,2.0f)
+//        sample_text.text = provider.getPressure()
 //        sample_text.text = provider.stringFromJNI()
 //        sample_text.text = provider.sayHelloInC("lijunjie")
         sample_text.setOnClickListener {

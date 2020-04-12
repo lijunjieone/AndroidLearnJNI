@@ -79,6 +79,14 @@ JNIEXPORT jstring JNICALL Java_com_learn_jni_DataProvider_getLameVersion
 JNIEXPORT void JNICALL Java_com_learn_jni_DataProvider_convertAudio
   (JNIEnv *, jobject, jstring, jstring);
 
+/*
+ * Class:     com_learn_jni_DataProvider
+ * Method:    addFloat
+ * Signature: (FF)F
+ */
+JNIEXPORT jfloat JNICALL Java_com_learn_jni_DataProvider_addFloat
+  (JNIEnv *, jobject, jfloat, jfloat);
+
 #ifdef __cplusplus
 }
 #endif

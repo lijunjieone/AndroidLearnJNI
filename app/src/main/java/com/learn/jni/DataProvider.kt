@@ -26,6 +26,7 @@ class DataProvider {
     external fun getLameVersion():String
     external fun convertAudio(inputName:String,outputName:String)
 
+    external fun addFloat(a:Float,b:Float):Float
 
     companion object {
 

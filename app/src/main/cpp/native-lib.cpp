@@ -2,6 +2,7 @@
 #include <string>
 #include <android/log.h>
 #include "hello.h"
+#include "utils.h"
 
 #define LOG_TAG "System.out"
 #define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)
@@ -111,6 +112,14 @@ JNIEXPORT void JNICALL Java_com_learn_jni_DataProvider_convertAudio
 
 }
 
+extern "C"
+
+JNIEXPORT jfloat JNICALL Java_com_learn_jni_DataProvider_addFloat
+        (JNIEnv * env, jobject obj, jfloat a, jfloat b){
+    return a;
+}
+
+extern float addFloat2(float a, float b) ;
 
 
 int getPressure() {
