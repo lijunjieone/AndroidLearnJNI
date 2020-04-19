@@ -10,3 +10,4 @@
 - 增加音频支持
 - 增加视频支持
 - CMakeList
+- adapter的支持
