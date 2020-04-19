@@ -6,7 +6,6 @@ import androidx.lifecycle.MutableLiveData
 import com.d.ui.base.Event
 
 /**
- * 用于发送事件的ViewModel
  */
 open class BaseViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -14,7 +13,6 @@ open class BaseViewModel(application: Application) : AndroidViewModel(applicatio
     var isFirst = true
 
     /**
-     * 是否显示loading
      */
     val loadingEvent = MutableLiveData<Event<Boolean>>()
 
